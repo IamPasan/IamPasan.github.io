@@ -1,0 +1,63 @@
+---
+platform: https://overthewire.org/wargames/bandit/bandit3.html
+level: 2
+date: 2026-06-27
+Author: Pasan Sanjana
+os: Kali Linux
+tags:
+  - bandit
+  - ssh
+  - linux-basics
+  - OverTheWire
+  - Write-Ups
+related:
+  - bandit-overview 
+  - bandit2
+  - bandit3
+Status: Done
+---
+---
+## Goal
+
+Find the password for bandit3, stored on the bandit2 server.
+
+## Recon
+
+To solve this task need to use two commands 
+
+`ls` - for list files directories 
+`cat` or `tac` - to read the files 
+
+```shell
+ssh bandit2@bandit.labs.overthewire.org -p 2220
+# password: password from bandit1-2
+
+ls 
+cat ./--spaces\ in\ this\ filename-- 
+
+
+```
+
+> Output:
+
+
+```shell
+bandit2@bandit:~$ ls
+
+--spaces in this filename--
+
+bandit2@bandit:~$ cat ./--spaces\ in\ this\ filename-- 
+
+7ZZ2LFrykP2zEyvBl4m3clcL7tGYJPME
+
+bandit2@bandit:~$ 
+
+ 
+```
+
+> [!note]
+> The `--spaces in this filename--` file  in bandit2's home directory contains the bandit3 password.
+
+## Answer 
+
+Password for bandit2: `7ZZ2LFrykP2zEyvBl4m3clcL7tGYJPME` 

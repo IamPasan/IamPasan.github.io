@@ -1,0 +1,64 @@
+---
+platform: https://overthewire.org/wargames/bandit/bandit0.html
+SecondLink: https://overthewire.org/wargames/bandit/bandit1.html
+level: 0
+date: 2026-06-27
+Author: Pasan Sanjana
+os: Kali Linux
+tags:
+  - bandit
+  - ssh
+  - linux-basics
+  - "#OverTheWire"
+  - Write-Ups
+related:
+  - bandit-overview 
+  - bandit0 
+  - bandit1
+Status: Done
+---
+
+---
+## Goal
+
+Find the password for bandit1, stored on the bandit0 server.
+
+---
+
+## Recon
+
+To solve this task need to use two commands 
+
+`ls` - for list files directories 
+`cat` or `tac` - to read the files 
+
+```bash
+ssh bandit0@bandit.labs.overthewire.org -p 2220
+# password: bandit0
+ls
+cat readme
+```
+
+> Output 
+
+```shell
+bandit0@bandit:~$ cat readme                                                                                                                                
+Congratulations on your first steps into the bandit game!!                                                                                                  
+Please make sure you have read the rules at https://overthewire.org/rules/                                                                                  
+If you are following a course, workshop, walkthrough or other educational activity,                                                                         
+please inform the instructor about the rules as well and encourage them to                                                                                  
+contribute to the OverTheWire community so we can keep these games free!                                                                                    
+The password you are looking for is: 6y2kwnwK6grgvwvpvLaa2T1cpFEKOhNR  
+```
+
+---
+> [!note]
+> `readme` in bandit0's home directory contains the bandit1 password.
+
+## Answer
+Password for bandit1: `6y2kwnwK6grgvwvpvLaa2T1cpFEKOhNR` 
+
+>[!TIP] TIP
+>Create a file for notes and passwords on your local machine!
+
+---
